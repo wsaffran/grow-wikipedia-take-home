@@ -48,3 +48,6 @@ https://user-images.githubusercontent.com/46094451/204303928-9fe7f396-9cdf-4efe-
 
 
 The detial page requires two api calls. The first is to the wikimedia api to retrieve top day rankings for that article over the current month and the other is to the wikipedia api for the summary. As mentioned above, rankings are based on original country's project and the summary is based on the english project so we could all read the summary previews!
+
+### Running the app locally
+Download dependencies `npm install` and run `npm start`! (or you can use yarn)

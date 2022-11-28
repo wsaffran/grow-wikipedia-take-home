@@ -1,4 +1,4 @@
-export const COUNTRY_OPTIONS = [
+export const countryOptions = [
   { label: "Afghanistan", value: "AF" },
   { label: "Åland Islands", value: "AX" },
   { label: "Albania", value: "AL" },

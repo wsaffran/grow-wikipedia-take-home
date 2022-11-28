@@ -1,3 +1,4 @@
+import { countryOptions } from "./countryOptions";
 import {
   getFirstOfMonth,
   getToday,
@@ -22,5 +23,7 @@ export const DEFAULT_QUERY_PARAMS = {
 
 const ARTICLE_COUNTS = [25, 50, 75, 100, 200];
 export const ARTICLE_COUNT_OPTIONS = mapValueToKeyAndValue(ARTICLE_COUNTS);
+
+export const COUNTRY_OPTIONS = countryOptions;
 
 export const INPUT_WIDTH = 120;

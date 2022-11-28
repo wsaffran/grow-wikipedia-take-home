@@ -1,4 +1,4 @@
-import { Col, DatePicker } from "antd";
+import { DatePicker } from "antd";
 import { RangePickerProps } from "antd/es/date-picker";
 import dayjs from "dayjs";
 
@@ -8,6 +8,8 @@ import {
   INPUT_WIDTH,
 } from "../../../utils/constants";
 import { useSearchQueryParams } from "../../../hooks/useSearchQueryParams";
+
+import InputWrapper from "./InputWrapper";
 
 function DateInput() {
   const disabledDates: RangePickerProps["disabledDate"] = (
@@ -30,8 +32,7 @@ function DateInput() {
   }
 
   return (
-    <Col>
-      <label>Date</label>
+    <InputWrapper label="Date">
       <DatePicker
         allowClear={false}
         value={dayjs(getParam("date"))}
@@ -41,7 +42,7 @@ function DateInput() {
         disabledDate={disabledDates}
         showToday={false}
       />
-    </Col>
+    </InputWrapper>
   );
 }
 

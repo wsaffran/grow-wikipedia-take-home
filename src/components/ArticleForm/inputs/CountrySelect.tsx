@@ -1,8 +1,10 @@
-import { Col, Select } from "antd";
+import { Select } from "antd";
 
 import { useSearchQueryParams } from "../../../hooks/useSearchQueryParams";
 import { INPUT_WIDTH } from "../../../utils/constants";
 import { COUNTRY_OPTIONS } from "../../../utils/constants";
+
+import InputWrapper from "./InputWrapper";
 
 function CountrySelect() {
   const { getParam, updateParam, removeParam } = useSearchQueryParams();
@@ -16,8 +18,7 @@ function CountrySelect() {
   }
 
   return (
-    <Col>
-      <label>Country</label>
+    <InputWrapper label="Country">
       <Select
         allowClear
         defaultActiveFirstOption={false}
@@ -28,7 +29,7 @@ function CountrySelect() {
         style={{ width: INPUT_WIDTH }}
         value={getParam("country")}
       />
-    </Col>
+    </InputWrapper>
   );
 }
 

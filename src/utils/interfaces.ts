@@ -6,12 +6,12 @@ interface BaseArticle {
 
 interface ArticleWithViews extends BaseArticle {
   views: number;
-  views_ceil: never;
+  views_ceil?: never;
 }
 
 interface ArticleWithViewsCeil extends BaseArticle {
   views_ceil: number;
-  views: never;
+  views?: never;
 }
 
 export type ArticleData = ArticleWithViews | ArticleWithViewsCeil;

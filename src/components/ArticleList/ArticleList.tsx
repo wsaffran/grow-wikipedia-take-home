@@ -23,7 +23,7 @@ function ArticleList(props: ArticleListProps) {
             key={key}
             project={project}
             title={title}
-            views={views || views_ceil}
+            views={views || views_ceil || 0}
             {...passDownProps}
           />
         );

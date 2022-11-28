@@ -6,7 +6,7 @@ import {
   DATE_FORMAT_PARAM,
   DATE_FORMAT_USER,
   INPUT_WIDTH,
-} from "../../../constants";
+} from "../../utils/constants";
 import { useSearchQueryParams } from "../../../hooks/useSearchQueryParams";
 
 function DateInput() {

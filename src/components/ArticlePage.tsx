@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { DEFAULT_QUERY_PARAMS } from "../constants";
+import { DEFAULT_QUERY_PARAMS } from "./utils/constants";
 import { useTopArticlesData } from "../services/articlesService";
 
 import ArticleForm from "./ArticleForm/ArticleForm";
@@ -10,8 +10,9 @@ function ArticlePage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const dateParam = searchParams.get("date");
+  const countryParam = searchParams.get("country");
 
-  const { data: articles } = useTopArticlesData(dateParam);
+  const { data: articles } = useTopArticlesData(dateParam, countryParam);
 
   useEffect(() => {
     function setDefaultParams(): void {

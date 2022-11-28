@@ -7,9 +7,10 @@ export interface ArticleData {
 interface TopArticlesData {
   access: string;
   articles: ArticleData[];
+  country?: string;
   day: string;
   month: string;
-  project: string;
+  project?: string;
   year: string;
 }
 

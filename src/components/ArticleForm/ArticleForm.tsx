@@ -1,5 +1,6 @@
 import { Row } from "antd";
 
+import CountrySelect from "./inputs/CountrySelect";
 import CountSelect from "./inputs/CountSelect";
 import DateInput from "./inputs/DateInput";
 
@@ -8,6 +9,7 @@ function ArticleForm() {
     <Row>
       <DateInput />
       <CountSelect />
+      <CountrySelect />
     </Row>
   );
 }

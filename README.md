@@ -24,9 +24,17 @@ With more time I would have liked to add unit tests for each component as well a
 
 ### Filter by date and query count
 
+
+https://user-images.githubusercontent.com/46094451/204303663-d2984e7b-551a-4a40-b83a-548942b2302b.mov
+
+
 I tackled this by storing these as query parameters in the url. This way users could bookmark pages, access the forward and back browser buttons, and refrest the page without losing their current query. On app load, the parameters are defaulted to yesterday's date and 100 articles displayed. Each time an input is changed a call is made to the wikipedia/wikimedia API to update the current articles
 
 ### Pinned Articles
+
+
+https://user-images.githubusercontent.com/46094451/204303896-88a028d6-c225-44e5-9951-c975c64c53d6.mov
+
 
 For pinning articles, I used `localStorage` to store key value pairs of article titles and projects respectively. The project represents the country/language of the article. For example, for English articles the project would be `en.wikipedia` and for German articles it would be `de.wikipedia`. When a country is selected, the top articles for that country/language's project is ranked. This is also the case for the individual rankings on the detail page. Only the summary on the detail page is in english.
 The project is also stored to allow pinned articles to bring you to the detail page and load the top days this month for the country of the article require the project to be specified.
@@ -34,5 +42,9 @@ The project is also stored to allow pinned articles to bring you to the detail p
 Articles can be pinned (or unpinned) with the pin icon in the article list or the pinned article section. I achieve this with local state that pulls from localStorage and updates localStorage on each state change so the pins will persist on page load.
 
 ### Detail Page
+
+
+https://user-images.githubusercontent.com/46094451/204303928-9fe7f396-9cdf-4efe-89d6-2d5c477ad99c.mov
+
 
 The detial page requires two api calls. The first is to the wikimedia api to retrieve top day rankings for that article over the current month and the other is to the wikipedia api for the summary. As mentioned above, rankings are based on original country's project and the summary is based on the english project so we could all read the summary previews!

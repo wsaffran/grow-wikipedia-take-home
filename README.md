@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Grow Takehome
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hi! Here are some notes about how I approached the take home assignment.
 
-## Available Scripts
+**Setup:** I used create-react-app for a quick setup and configuration.
 
-In the project directory, you can run:
+**Primary Tools:** React, TypeScript, Axios, ReactRouter, ReactQuery, and AntDesign
 
-### `npm start`
+**API:** I created an `articlesService` which uses Axios as the HTTP client, declares the API call functions, and exports custom hooks to handle the requests from the components. The hooks are are used as an extension of react-query's `useQuery` hook. Check out the `services` folder
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Routing:** I created a simple routing structure for `/articles` and `/article/:id`. The primary use case is actually to hold query parameters for the date, count, and country selections.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Testing:** I only had time to add a couple tests which were done using react testing library. Unfortunatley, I begain to run out of time at this point so this is one thing I would have loved to work more on. (I have a lot of experience writing tests using Jest/Enzyme and coverage is always a high priority for me)
 
-### `npm test`
+**Performance Considerations:** For the API calls, I used a cache to prevent duplicate requests in the same user session. Given more time I would have like to spend some more time on component re-renders. Places I would start would be looking into would be caching values/functions in components with things like useMemo and useCallback, refactoring state location, managing some prop drilling I had with pins, _potentially_ looking into potentially using context/global state, and looking into side effect's and their dependencies.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Issues:**
+The lack of ID's in the wikipedia/wikimedia API responses made it difficult to do certain things. I used loop indexes as component keys and used the article titles for various things like API request parameters, cache keys, and identifiers. This resulted in an edge case with the pinned article feature where the localStoarage key was the article title. In this case, if a user pinned `Thanksgiving` in the USA and then pinned `Thanksgiving` in Germany the project for the `Thanksgiving` key in localStorage would be overwritten.
 
-### `npm run build`
+**Reflect:**
+With more time I would have liked to add unit tests for each component as well as test my API interface and routing. I would have also liked to separate out some concerns in `ArticlePage`. There are a lot of props, API calls, and side effects being handled/passed down from there. Lastly, I would have liked to refine the loading / error application states and the UI in general!
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Primary Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Filter by date and query count
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I tackled this by storing these as query parameters in the url. This way users could bookmark pages, access the forward and back browser buttons, and refrest the page without losing their current query. On app load, the parameters are defaulted to yesterday's date and 100 articles displayed. Each time an input is changed a call is made to the wikipedia/wikimedia API to update the current articles
 
-### `npm run eject`
+### Pinned Articles
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For pinning articles, I used `localStorage` to store key value pairs of article titles and projects respectively. The project represents the country/language of the article. For example, for English articles the project would be `en.wikipedia` and for German articles it would be `de.wikipedia`. When a country is selected, the top articles for that country/language's project is ranked. This is also the case for the individual rankings on the detail page. Only the summary on the detail page is in english.
+The project is also stored to allow pinned articles to bring you to the detail page and load the top days this month for the country of the article require the project to be specified.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Articles can be pinned (or unpinned) with the pin icon in the article list or the pinned article section. I achieve this with local state that pulls from localStorage and updates localStorage on each state change so the pins will persist on page load.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Detail Page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The detial page requires two api calls. The first is to the wikimedia api to retrieve top day rankings for that article over the current month and the other is to the wikipedia api for the summary. As mentioned above, rankings are based on original country's project and the summary is based on the english project so we could all read the summary previews!

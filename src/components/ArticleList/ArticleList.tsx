@@ -1,15 +1,15 @@
 import { Col } from "antd";
 
-import { ArticleData } from "../../utils/interfaces";
+import { ArticleData, PinProps } from "../../utils/interfaces";
 
 import ArticleListCard from "./ArticleListCard";
 
-interface ArticleListProps {
+interface ArticleListProps extends PinProps {
   articles: ArticleData[];
 }
 
 function ArticleList(props: ArticleListProps) {
-  const { articles } = props;
+  const { articles, ...passDownProps } = props;
 
   return (
     <Col>
@@ -22,6 +22,7 @@ function ArticleList(props: ArticleListProps) {
             project={project}
             title={title}
             views={views || views_ceil}
+            {...passDownProps}
           />
         );
       })}

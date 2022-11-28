@@ -53,3 +53,12 @@ export interface PageViewData {
   timestamp: string;
   views: number;
 }
+
+export type Pin = {
+  [key: string]: string;
+};
+
+export interface PinProps {
+  pins: Pin;
+  togglePin: (pinTitle: string, project?: string) => void;
+}

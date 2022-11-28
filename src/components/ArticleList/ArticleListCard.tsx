@@ -1,21 +1,32 @@
 import { Card, Col, Row } from "antd";
 
-import ArticleLink from "../common/ArticleDetailLink";
+import { PinProps } from "../../utils/interfaces";
+import ArticleDetailLink from "../common/ArticleDetailLink";
 
-interface ArticleListCardProps {
+interface ArticleListCardProps extends PinProps {
   project?: string;
   title: string;
   views: number;
 }
 
 function ArticleListCard(props: ArticleListCardProps) {
-  const { project, title, views } = props;
+  const { pins, project, title, togglePin, views } = props;
+  const isArticlePinned = !!(title in pins);
+
+  function handleToggle() {
+    togglePin(title, project);
+  }
 
   return (
     <Card>
       <Row>
         <Col span={12}>
-          <ArticleLink title={title} project={project} />
+          <ArticleDetailLink
+            title={title}
+            project={project}
+            isArticlePinned={isArticlePinned}
+            handleToggle={handleToggle}
+          />
         </Col>
         <Col span={12}>
           <b>Views:</b>

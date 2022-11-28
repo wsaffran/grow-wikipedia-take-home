@@ -4,6 +4,8 @@ import { PinProps } from "../../utils/interfaces";
 
 import ArticleDetailLink from "../common/ArticleDetailLink";
 
+import styles from "./PinnedArticle.module.css";
+
 interface PinnedArticleProps {
   pin: string[];
   togglePin: PinProps["togglePin"];
@@ -19,7 +21,7 @@ function PinnedArticle(props: PinnedArticleProps) {
   }
 
   return (
-    <Col>
+    <Col className={styles.root}>
       <ArticleDetailLink
         title={title}
         project={project}

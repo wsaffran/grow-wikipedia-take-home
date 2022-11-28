@@ -12,6 +12,8 @@ import { PageViewData } from "../../utils/interfaces";
 import { formatTitle } from "../../utils/utils";
 import LoadingErrorDisplay from "../common/LoadingErrorDisplay";
 
+import styles from "./ArticleDetailPage.module.scss";
+
 function ArticleDetailPage() {
   const { id: title } = useParams();
   const {
@@ -43,10 +45,10 @@ function ArticleDetailPage() {
   }
 
   return (
-    <div>
+    <div className={styles.root}>
       <h2>{formatTitle(articleSummary.title)}</h2>
       {parse(articleSummary.extract_html)}
-      <Row>
+      <Row className={styles["top-days-title"]}>
         <Col span={24}>Top Days This Month</Col>
       </Row>
       <Row>

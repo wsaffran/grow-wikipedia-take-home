@@ -1,8 +1,11 @@
 import { List } from "antd";
+import cx from "classnames";
 
 import { PinProps } from "../../utils/interfaces";
 
 import PinnedArticle from "./PinnedArticle";
+
+import styles from "./PinnedArticleList.module.scss";
 
 interface ListRenderItem {
   title: string;
@@ -11,6 +14,7 @@ interface ListRenderItem {
 
 function PinnedArticleList(props: PinProps) {
   const pins = Object.entries(props.pins);
+  const isEmpty = pins.length === 0;
   const data = pins.map(
     (pin: string[], index: number): ListRenderItem => ({
       title: pin[0],
@@ -24,6 +28,7 @@ function PinnedArticleList(props: PinProps) {
     <>
       <h3>Pinned Articles</h3>
       <List
+        className={cx(styles.root, { [styles.empty]: isEmpty })}
         bordered={true}
         dataSource={data}
         grid={{ gutter: 16, column: 3 }}

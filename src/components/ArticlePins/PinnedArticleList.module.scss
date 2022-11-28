@@ -1,0 +1,19 @@
+.root {
+  margin: 0 100px;
+  padding: 20px 15px;
+  text-align: left;
+  height: 120px;
+
+  :global(.ant-list-empty-text) {
+    margin-top: -35px;
+    top: 0;
+  }
+
+  .list-item {
+    a {
+      font-weight: bold;
+      color: black;
+      margin-right: 10px;
+    }
+  }
+}

@@ -15,6 +15,8 @@ import ArticleList from "./ArticleList/ArticleList";
 import PinnedArticleList from "./ArticlePins/PinnedArticleList";
 import LoadingErrorDisplay from "./common/LoadingErrorDisplay";
 
+import styles from "./ArticlePage.module.css";
+
 function ArticlePage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -58,7 +60,7 @@ function ArticlePage() {
   }, [pins]);
 
   return (
-    <div>
+    <div className={styles.root}>
       <ArticleForm />
       <PinnedArticleList pins={pins} togglePin={togglePin} />
       {!!articles ? (

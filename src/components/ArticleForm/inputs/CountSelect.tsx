@@ -1,6 +1,6 @@
 import { Col, Select } from "antd";
 
-import { ARTICLE_COUNT_OPTIONS, INPUT_WIDTH } from "../../utils/constants";
+import { ARTICLE_COUNT_OPTIONS, INPUT_WIDTH } from "../../../utils/constants";
 import { useSearchQueryParams } from "../../../hooks/useSearchQueryParams";
 
 function CountSelect() {

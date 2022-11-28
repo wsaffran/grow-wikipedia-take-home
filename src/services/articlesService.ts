@@ -2,11 +2,8 @@ import { AxiosRequestConfig } from "axios";
 import dayjs from "dayjs";
 import { useQuery } from "react-query";
 
-import { DATE_FORMAT_API } from "../components/utils/constants";
-import {
-  ArticleData,
-  RawTopArticlesData,
-} from "../components/utils/interfaces";
+import { DATE_FORMAT_API } from "../utils/constants";
+import { ArticleData, RawTopArticlesData } from "../utils/interfaces";
 
 import { makeRequest } from "./makeRequest";
 

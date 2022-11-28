@@ -1,8 +1,8 @@
 import { Col, Select } from "antd";
 
 import { useSearchQueryParams } from "../../../hooks/useSearchQueryParams";
-import { INPUT_WIDTH } from "../../utils/constants";
-import { COUNTRY_OPTIONS } from "../../utils/constants";
+import { INPUT_WIDTH } from "../../../utils/constants";
+import { COUNTRY_OPTIONS } from "../../../utils/constants";
 
 function CountrySelect() {
   const { getParam, updateParam, removeParam } = useSearchQueryParams();

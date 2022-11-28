@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { DEFAULT_QUERY_PARAMS } from "./utils/constants";
+import { DEFAULT_QUERY_PARAMS } from "../utils/constants";
 import { useTopArticlesData } from "../services/articlesService";
 
 import ArticleForm from "./ArticleForm/ArticleForm";

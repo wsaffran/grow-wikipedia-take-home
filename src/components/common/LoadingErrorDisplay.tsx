@@ -1,17 +1,22 @@
 interface LoadingErrorDisplayProps {
-  isLoading: boolean;
-  isError: boolean;
+  errorStates: boolean[];
+  errorText?: string;
+  loadingStates: boolean[];
+  loadingText?: string;
 }
 
 function LoadingErrorDisplay(props: LoadingErrorDisplayProps) {
-  const { isLoading, isError } = props;
+  const { errorText, loadingText, loadingStates, errorStates } = props;
+  const defaultErrorText = "Error";
+  const defaultLoadingText = "Loading...";
 
-  return (
-    <>
-      {isLoading && <h2>Loading...</h2>}
-      {isError && <h2>{"No articles for this search :("}</h2>}
-    </>
-  );
+  if (errorStates.includes(true))
+    return <h2>{errorText || defaultErrorText}</h2>;
+
+  if (loadingStates.includes(true))
+    return <h2>{loadingText || defaultLoadingText}</h2>;
+
+  return null;
 }
 
 export default LoadingErrorDisplay;

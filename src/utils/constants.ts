@@ -9,6 +9,7 @@ import {
 export const DATE_FORMAT_API = "YYYY/MM/DD";
 export const DATE_FORMAT_PARAM = "YYYY-MM-DD";
 export const DATE_FORMAT_USER = "MM/DD/YYYY";
+export const DATE_FORMAT_PAGE_VIEWS_API = "YYYYMMDD";
 
 export const FIRST_OF_MONTH = getFirstOfMonth();
 export const TODAY = getToday();

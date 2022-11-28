@@ -14,11 +14,12 @@ function ArticleList(props: ArticleListProps) {
   return (
     <Col>
       {articles.map((article: ArticleData, key: number) => {
-        const { article: title, views, views_ceil } = article;
+        const { article: title, project, views, views_ceil } = article;
 
         return (
           <ArticleListCard
             key={key}
+            project={project}
             title={title}
             views={views || views_ceil}
           />

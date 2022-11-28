@@ -1,5 +1,6 @@
 interface BaseArticle {
   article: string;
+  project?: string;
   rank: number;
 }
 
@@ -27,4 +28,28 @@ interface TopArticlesData {
 
 export interface RawTopArticlesData {
   items: TopArticlesData[];
+}
+
+export interface ArticleSummary {
+  title: string;
+  extract_html: string;
+}
+
+interface RawPageViewData {
+  access: string;
+  agent: string;
+  article: string;
+  granularity: string;
+  project: string;
+  timestamp: string;
+  views: number;
+}
+
+export interface RawPageViewResponse {
+  items: RawPageViewData[];
+}
+
+export interface PageViewData {
+  timestamp: string;
+  views: number;
 }

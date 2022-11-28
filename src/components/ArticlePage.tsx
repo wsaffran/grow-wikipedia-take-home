@@ -42,7 +42,11 @@ function ArticlePage() {
       {!!articles ? (
         <ArticleList articles={articles.slice(0, countParam)} />
       ) : (
-        <LoadingErrorDisplay isLoading={isLoading} isError={isError} />
+        <LoadingErrorDisplay
+          loadingStates={[isLoading]}
+          errorStates={[isError]}
+          errorText="No articles for this search :("
+        />
       )}
     </div>
   );

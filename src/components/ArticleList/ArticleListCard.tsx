@@ -1,18 +1,21 @@
 import { Card, Col, Row } from "antd";
 
-interface ArticleDetailCardProps {
+import ArticleLink from "../common/ArticleDetailLink";
+
+interface ArticleListCardProps {
+  project?: string;
   title: string;
   views: number;
 }
 
-function ArticleDetailCard(props: ArticleDetailCardProps) {
-  const { title, views } = props;
+function ArticleListCard(props: ArticleListCardProps) {
+  const { project, title, views } = props;
 
   return (
     <Card>
       <Row>
         <Col span={12}>
-          <p>{title}</p>
+          <ArticleLink title={title} project={project} />
         </Col>
         <Col span={12}>
           <b>Views:</b>
@@ -23,4 +26,4 @@ function ArticleDetailCard(props: ArticleDetailCardProps) {
   );
 }
 
-export default ArticleDetailCard;
+export default ArticleListCard;

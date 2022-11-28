@@ -19,3 +19,7 @@ export function mapValueToKeyAndValue(
 ): { [key: string]: string | number }[] {
   return array.map((key: string | number) => ({ value: key, label: key }));
 }
+
+export function formatTitle(title: string) {
+  return title.replaceAll("_", " ");
+}

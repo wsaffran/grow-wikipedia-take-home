@@ -15,9 +15,12 @@ function ArticlePage() {
 
   useEffect(() => {
     function setDefaultParams(): void {
-      const dateParam = searchParams.get("date");
+      const date = searchParams.get("date");
+      const count = searchParams.get("count");
 
-      if (!dateParam) {
+      if (!date || !count) {
+        if (!date) searchParams.set("date", DEFAULT_QUERY_PARAMS.date);
+        if (!count) searchParams.set("count", DEFAULT_QUERY_PARAMS.count);
         setSearchParams(DEFAULT_QUERY_PARAMS);
       }
     }

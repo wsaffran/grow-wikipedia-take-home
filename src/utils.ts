@@ -13,3 +13,9 @@ export function getFirstOfMonth() {
 
   return today;
 }
+
+export function mapValueToKeyAndValue(
+  array: Array<string | number>
+): { [key: string]: string | number }[] {
+  return array.map((key: string | number) => ({ value: key, label: key }));
+}

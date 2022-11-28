@@ -1,10 +1,24 @@
 import { Col, Select } from "antd";
 
+import { ARTICLE_COUNT_OPTIONS, INPUT_WIDTH } from "../../../constants";
+import { useSearchQueryParams } from "../../../hooks/useSearchQueryParams";
+
 function CountSelect() {
+  const { getParam, updateParam } = useSearchQueryParams();
+
+  function handleCountChange(count: string | null) {
+    updateParam("count", count);
+  }
+
   return (
     <Col>
       <label>Number of Results</label>
-      <Select style={{ width: 120 }} />
+      <Select
+        onChange={handleCountChange}
+        options={ARTICLE_COUNT_OPTIONS}
+        style={{ width: INPUT_WIDTH }}
+        value={getParam("count")}
+      />
     </Col>
   );
 }

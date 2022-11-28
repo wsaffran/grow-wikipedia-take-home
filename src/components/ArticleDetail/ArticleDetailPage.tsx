@@ -10,7 +10,7 @@ import {
 import { DATE_FORMAT_USER } from "../../utils/constants";
 import { PageViewData } from "../../utils/interfaces";
 import { formatTitle } from "../../utils/utils";
-import LoadingErrorDisplay from "../common/LoadingErrorDisplay";
+import ErrorDisplay from "../common/ErrorDisplay";
 
 import styles from "./ArticleDetailPage.module.scss";
 
@@ -36,8 +36,7 @@ function ArticleDetailPage() {
 
   if (isErrorOrLoading || !articleSummary || !articlePageViews) {
     return (
-      <LoadingErrorDisplay
-        loadingStates={[isViewsLoading, isSummaryLoading]}
+      <ErrorDisplay
         errorStates={[isViewsError, isSummaryError]}
         errorText="No data for this page..."
       />

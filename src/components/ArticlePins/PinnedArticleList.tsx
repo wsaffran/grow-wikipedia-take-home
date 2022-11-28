@@ -26,9 +26,9 @@ function PinnedArticleList(props: PinProps) {
 
   return (
     <>
-      <h3>Pinned Articles</h3>
+      <h3 className={styles.title}>Pinned Articles</h3>
       <List
-        className={cx(styles.root, { [styles.empty]: isEmpty })}
+        className={cx(styles.list, { [styles.empty]: isEmpty })}
         bordered={true}
         dataSource={data}
         grid={{ gutter: 16, column: 3 }}

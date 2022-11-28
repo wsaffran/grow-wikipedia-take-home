@@ -13,7 +13,7 @@ import { Pin } from "../utils/interfaces";
 import ArticleForm from "./ArticleForm/ArticleForm";
 import ArticleList from "./ArticleList/ArticleList";
 import PinnedArticleList from "./ArticlePins/PinnedArticleList";
-import LoadingErrorDisplay from "./common/LoadingErrorDisplay";
+import ErrorDisplay from "./common/ErrorDisplay";
 
 import styles from "./ArticlePage.module.css";
 
@@ -24,11 +24,10 @@ function ArticlePage() {
   const countParam = parseInt(searchParams.get("count") || DEFAULT_COUNT);
   const countryParam = searchParams.get("country");
 
-  const {
-    data: articles,
-    isLoading,
-    isError,
-  } = useTopArticlesData(dateParam, countryParam);
+  const { data: articles, isError } = useTopArticlesData(
+    dateParam,
+    countryParam
+  );
 
   useEffect(() => {
     function setDefaultParams(): void {
@@ -70,8 +69,7 @@ function ArticlePage() {
           togglePin={togglePin}
         />
       ) : (
-        <LoadingErrorDisplay
-          loadingStates={[isLoading]}
+        <ErrorDisplay
           errorStates={[isError]}
           errorText="No articles for this search :("
         />

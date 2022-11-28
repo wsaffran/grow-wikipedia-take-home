@@ -1,8 +1,19 @@
-export interface ArticleData {
+interface BaseArticle {
   article: string;
   rank: number;
-  views: number;
 }
+
+interface ArticleWithViews extends BaseArticle {
+  views: number;
+  views_ceil: never;
+}
+
+interface ArticleWithViewsCeil extends BaseArticle {
+  views_ceil: number;
+  views: never;
+}
+
+export type ArticleData = ArticleWithViews | ArticleWithViewsCeil;
 
 interface TopArticlesData {
   access: string;

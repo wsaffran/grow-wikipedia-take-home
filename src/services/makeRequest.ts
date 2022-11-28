@@ -8,6 +8,6 @@ export async function makeRequest(
     const response = await axios(url, options);
     return response.data;
   } catch (error: any) {
-    Promise.reject(error?.response?.data?.message || "Error");
+    throw new Error(error?.response?.data?.message || "Error");
   }
 }

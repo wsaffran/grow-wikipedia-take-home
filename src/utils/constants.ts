@@ -14,7 +14,7 @@ export const FIRST_OF_MONTH = getFirstOfMonth();
 export const TODAY = getToday();
 const YESTERDAY = getYesterday();
 
-const DEFAULT_COUNT = "100";
+export const DEFAULT_COUNT = "100";
 
 export const DEFAULT_QUERY_PARAMS = {
   date: YESTERDAY.format(DATE_FORMAT_PARAM),
